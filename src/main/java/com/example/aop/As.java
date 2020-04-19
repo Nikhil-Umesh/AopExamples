@@ -1,6 +1,7 @@
 package com.example.aop;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,13 @@ public class As {
     @AfterReturning(pointcut = "execution(* *(..))", returning = "string")
     public void afterReturningString(String string){
         System.out.println("after returning Aspect called");
+    }
+
+    @Around( "execution(int aspectAround(..))")
+    public Object aroundAspect(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        System.out.println("called Around");
+        System.out.println(proceedingJoinPoint.proceed());
+        return proceedingJoinPoint.proceed();
     }
 
     public boolean isAspectCalled(){

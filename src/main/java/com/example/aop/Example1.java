@@ -26,4 +26,7 @@ public class Example1 {
         return "String";
     }
 
+    public int aspectAround(){
+        return 10;
+    }
 }

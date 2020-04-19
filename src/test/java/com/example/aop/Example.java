@@ -1,5 +1,6 @@
 package com.example.aop;
 
+import org.assertj.core.api.Assertions;
 import org.junit.*;
 import org.junit.Assert.*;
 import org.junit.runner.RunWith;
@@ -34,5 +35,9 @@ public class Example {
        example1.aspectReturn();
     }
 
+    @Test
+    public void testAround(){
+        example1.aspectAround();
+    }
 
 }
